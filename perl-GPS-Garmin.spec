@@ -2,7 +2,7 @@ Name:		perl-GPS-Garmin
 Version: 	0.17
 Release:	%mkrel 1
 Summary: 	GPS-Garmin - Perl interface to GPS equipment using the Garmin Protocol
-Group:		Communications
+Group:		Development/Per
 License:	Artistic
 URL: 		http://www.cpan.org/authors/id/J/JO/JOAOP/
 Source0: 	http://www.cpan.org/authors/id/J/JO/JOAOP/perl-GPS-%{version}.tar.gz
