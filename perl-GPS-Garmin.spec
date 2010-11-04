@@ -1,61 +1,44 @@
-Name:		perl-GPS-Garmin
-Version: 	0.17
+%define upstream_name		perl-GPS
+%define upstream_version	0.17
+
+Name:		%{upstream_name}-Garmin
+Version: 	%perl_convert_version %{upstream_version}
 Release:	%mkrel 1
-Summary: 	GPS-Garmin - Perl interface to GPS equipment using the Garmin Protocol
-Group:		Development/Per
-License:	Artistic
-URL: 		http://www.cpan.org/authors/id/J/JO/JOAOP/
-Source0: 	http://www.cpan.org/authors/id/J/JO/JOAOP/perl-GPS-%{version}.tar.gz
-BuildRequires:  perl-devel
+License:	GPL+ or Artistic
+Summary: 	Perl interface to GPS equipment using the Garmin Protocol
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/GPS/%{upstream_name}-%{upstream_version}.tar.gz
 
-
+BuildRequires:	perl(Device::SerialPort)
+BuildArch:	noarch
+Provides:	%{upstream_name} = %{version}-%{release}
 
 %description
-use GPS::Garmin;
-$gps = new GPS::Garmin(  'Port'      => '/dev/ttyS0', 
-'Baud'      => 9600,
-);
-To transfer current position, and direction symbols:
-($latsign,$lat,$lonsign,$lon) = $gps->get_position;
-To transfer current time:
-($sec,$min,$hour,$mday,$mon,$year) = $gps->get_time;
-To transfer trackpoints:
-$gps->prepare_transfer("trk");  
-while($gps->records) {
-($lat,$lon,$time) = $gps->grab;
-}
-To transfer Waypoints:
-$gps->prepare_transfer("wpt");  
-while($gps->records) {
-($title,$lat,$lon,$desc) = $gps->grab;
-}
+GPS::Garmin allow the connection and use of of a GPS receiver in perl
+scripts. Currently only the GRMN/GRMN protocol is implemented but NMEA
+is a work in progress.
+
+This module currently works with Garmin GPS II+ equipments, but should
+work on most Garmin receivers that support the GRMN/GRMN protocol.
 
 %prep
-%setup -q -n perl-GPS-%{version} 
-
+%setup -q -n %{upstream_name}-%{upstream_version} 
 
 %build
-
-%__perl Makefile.PL \
-
-%__make
+%__perl Makefile.PL INSTALLDIRS=vendor
+%make
 
 
 %install
 %__rm -rf %{buildroot}
 %makeinstall_std
 
-
-# make some directories
-install -d %{buildroot}%{_mandir}/man3
-#mv %{buildroot}  /usr/local/share/man/man3/* %{buildroot}%{_mandir}/man3/
-
 %clean
 %__rm -rf %{buildroot}
 
 %files
 %defattr(-, root, root)
-%dir %{perl_sitelib}/GPS
-%{perl_sitelib}/GPS/*
-/usr/local/share/man/man3/*
-
+%doc Changes README
+%{perl_vendorlib}/GPS
+%{_mandir}/man3/GPS*
