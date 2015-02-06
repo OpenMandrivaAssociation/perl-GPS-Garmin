@@ -3,7 +3,7 @@
 
 Name:		%{upstream_name}-Garmin
 Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Release:	4
 License:	GPL+ or Artistic
 Summary:	Perl interface to GPS equipment using the Garmin Protocol
 Group:		Development/Perl
