@@ -7,7 +7,7 @@ Release:	4
 License:	GPL+ or Artistic
 Summary:	Perl interface to GPS equipment using the Garmin Protocol
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{upstream_name}
+Url:		https://search.cpan.org/dist/%{upstream_name}
 Source0:	http://www.cpan.org/modules/by-module/GPS/%{upstream_name}-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
