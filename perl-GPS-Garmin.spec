@@ -2,13 +2,13 @@
 %define upstream_version	0.17
 
 Name:		%{upstream_name}-Garmin
-Version:	%perl_convert_version %{upstream_version}
-Release:	4
+Version:	%{upstream_version}
+Release:	5
 License:	GPL+ or Artistic
 Summary:	Perl interface to GPS equipment using the Garmin Protocol
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/GPS/%{upstream_name}-%{upstream_version}.tar.gz
+Url:		https://metacpan.org/dist/perl-GPS
+Source0:	https://cpan.metacpan.org/authors/id/S/SR/SREZIC/perl-GPS-%{upstream_version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
