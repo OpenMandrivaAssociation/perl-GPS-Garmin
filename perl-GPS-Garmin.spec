@@ -1,14 +1,12 @@
 %define upstream_name		perl-GPS
-%define upstream_version	0.17
-
 Name:		%{upstream_name}-Garmin
-Version:	%{upstream_version}
-Release:	5
+Version:	0.17
+Release:	6
 License:	GPL+ or Artistic
 Summary:	Perl interface to GPS equipment using the Garmin Protocol
 Group:		Development/Perl
 Url:		https://metacpan.org/dist/perl-GPS
-Source0:	https://cpan.metacpan.org/authors/id/S/SR/SREZIC/perl-GPS-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/S/SR/SREZIC/perl-GPS-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -24,7 +22,7 @@ This module currently works with Garmin GPS II+ equipments, but should
 work on most Garmin receivers that support the GRMN/GRMN protocol.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version} 
+%setup -q -n %{upstream_name}-%{version} 
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
